@@ -9,9 +9,9 @@ while True:
     if input_value == computer_value:
         print('Congratulation! you are right! The total guess number is:',count_number)
         break
-    elif input_value > computer_value:
+    elif 101 > input_value > computer_value:
         print('Too big, try a smaller one!')
-    elif input_value < computer_value:
+    elif 0 < input_value < computer_value:
         print('Too small, try a bigger one!')
     else:
         print('Out of range[0,100]')
