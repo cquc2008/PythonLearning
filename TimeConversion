@@ -1,0 +1,5 @@
+input_time = int(input('Please input the time(S):'))
+Hour = input_time // 3600
+Minute = input_time % 3600 // 60
+Second = input_time % 60
+print(input_time, 'is',Hour,'hours',Minute,'minutes',Second,'seconds')
