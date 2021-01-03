@@ -1,0 +1,26 @@
+# METHOD 1
+
+while True:
+    num = int(input('Please input a Positive Integer:'))    
+    if num >= 0:
+        break
+    print('Invalid data, please input again:')
+
+i = 0
+while True:
+    i += 1
+    if num // 10**i == 0:
+        break
+print('The input Positive integer is', i, 'digits')
+
+
+
+# METHOD 2
+
+while True:
+    num = input('Please input a Positive Integer:')
+    if int(num) >= 0:
+        break
+    print('Invalid Data, please input Positive Integer again:')
+    
+print('The input Positive Integer is', len(str(int(num))),'digits')
