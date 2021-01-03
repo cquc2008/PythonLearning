@@ -1,0 +1,8 @@
+start_num = int(input('Please input the begining number:'))
+end_num = int(input('Please input the ending number:'))
+difference = end_num - start_num
+if difference % 2 == 0:
+    sum = difference / 2 * (start_num + end_num)+(start_num + difference / 2)
+else:
+    sum = ( difference // 2 + 1 ) * (start_num + end_num)
+print(sum)
