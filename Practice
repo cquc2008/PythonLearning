@@ -1,0 +1,76 @@
+# Practice 1
+
+while True:
+    score = float(input('Please input the score(0-100):'))
+    if 0 <= score <= 100:
+        break
+    print('Invalid Score!! Please check the input!!')
+if score < 60:
+    print('Sorry, did not pass the example')
+else:
+    print('Congratulation! Passed the example')
+    
+    
+    
+# PRACTICE 2
+
+age = int(input('Please input your age(0-150):'))
+if 0 <= age <= 18:
+    print('Child')
+elif 18 < age <= 150:
+    print('adult')
+else:
+    print('please check the input age')
+    
+    
+# PRACTICE 3
+
+num1 = int(input('Please input the first integer:'))
+num2 = int(input('Please input the second integer:'))
+difference = abs(num1 - num2)
+if difference % 2 == 0:
+    print(difference,'is Even Number')
+else:
+    print(difference,'is Odd Number')
+    
+    
+    
+    
+# PRACTICE 4  //// print all odd number from 0 to 100
+
+for i in range(0,101):
+    if i % 2 != 0:
+        print(i)
+    
+i = 0
+while i < 101:
+    if i % 2 != 0:
+        print(i)
+    i += 1
+    
+
+
+
+
+# PRACTICE 5 /// got the sum value from 0 to 100
+
+sum = 0
+for i in range(0,101):
+    sum += i
+print(sum)
+
+start_num = int(input('Please input the begining number:'))
+end_num = int(input('Please input the ending number:'))
+difference = end_num - start_num
+if difference % 2 == 0:
+    sum = difference / 2 * (start_num + end_num)+(start_num + difference / 2)
+else:
+    sum = ( difference // 2 + 1 ) * (start_num + end_num)
+print(sum)
+
+
+
+
+
+
+
