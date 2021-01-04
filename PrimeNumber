@@ -1,1 +1,32 @@
+# METHOD 1
+start_num = int(input('Please input the begining integer:'))
+end_num = int(input('Please input the ending integer:'))
+count = 0
+for i in range(start_num,end_num):
+    for j in range(2,i):
+        if i % j == 0:
+            break
+    else:
+        count += 1
+        print(i)
+print('The total number of PrimeNumber is:', count)        
+
+
+
+# METHOD 2
+start_num = int(input('Please input the begining integer:'))
+end_num = int(input('Please input the ending integer:'))
+count = 0
+for i in range(start_num,end_num):
+    for j in range(2,int(i**0.5)+1):
+        if i % j == 0:
+            break
+    else:
+        count += 1
+        print(i)
+print('The total number of PrimeNumber is:', count)  
+
+
+
+
 
