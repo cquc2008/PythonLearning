@@ -1,0 +1,12 @@
+'''
+Adult_horse: 3 goods
+Youth_horse: 2 goods
+Child_horse: 1/2 goods
+
+Now using 100 horses to take 100 goods, how many Adult_horse,Youth_horse and Child_horse
+
+'''
+for adult in range(0,100//3 +1):
+    for youth in range(0,100//2 +1):
+        if adult * 3 + youth * 2 + (100-adult-youth) * 0.5 == 100:
+            print('Adult_horse:',adult,',Youth_horse:',youth,',Child_horse:',100-adult-youth,'.')
