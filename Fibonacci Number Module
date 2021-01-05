@@ -1,0 +1,36 @@
+# METHOD 1
+
+a = 1
+b = 1
+c = 0
+
+check_num = int(input('Please input the digits:'))
+if check_num == 1:
+    print(a)
+elif check_num == 2:
+    print(b)
+elif check_num >= 3:
+    for i in range(3,check_num):
+        c = a + b
+        a = b
+        b = c
+    print('The',check_num,'th Fibonacci Number is:', c)
+else:
+  print('Something is wrong, please check your input')
+
+
+
+
+# METHOD 2
+
+def Fibonacci (n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        return Fibonacci(n-1) + Fibonacci(n-2)
+        
+Fibonacci(10)
+
+
