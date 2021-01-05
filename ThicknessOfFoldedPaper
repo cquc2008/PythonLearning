@@ -1,0 +1,28 @@
+'''
+thickness of paper is 0.08mm
+how many times does it reach 8848.13m after folding
+'''
+
+
+Thickness_target = float(input('Please input the target thickness(m):'))
+fold_num = 0
+thickness_paper = 0.08/1000
+while True:
+    fold_num += 1
+    thickness_sum = (2 ** fold_num) * thickness_paper
+    if thickness_sum > Thickness_target:
+        print('When the paper is folded', thickness_sum,'times, the total thickness is more than', Thickness_target)
+        break
+    
+
+# improvement
+
+Thickness_target = float(input('Please input the target thickness(m):'))
+fold_num = 0
+thickness_paper = 0.08/1000
+while True:
+    thickness_paper *= 2
+    fold_num += 1
+    if thickness_paper > Thickness_target:
+        break
+print('When the paper is folded', fold_num,'times, the total thickness is',thickness_paper,',which is more than', Thickness_target)
