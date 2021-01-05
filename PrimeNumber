@@ -28,5 +28,37 @@ print('The total number of PrimeNumber is:', count)
 
 
 
+# METHOD 3
 
+start_num = int(input('Please input the begining integer:'))
+end_num = int(input('Please input the ending integer:'))
+count = 0
+for i in range(start_num,end_num):
+    for j in range(2,int(i**0.5) + 1):
+        flag = True
+        if i % j == 0:
+            flag =False
+            break
+    if flag == True:
+        print(i,'is Prime Number')
+        count += 1
+print('The total number of PrimeNumber is:',count)
+
+
+
+# METHOD 4
+
+start_num = int(input('Please input the beginning integer:'))
+end_num = int(input('Please input the ending integer:'))
+
+for i in range(start_num,end_num):
+    count = 0
+    for j in range(2, int(i**0.5)+1):
+        if i % j == 0:
+            count += 1
+    if count == 0:
+        print(i,'is Prime Number')
+    else:
+        Print(i,'is Composite Number, and is divisible by',count,'numbers')
+            
 
