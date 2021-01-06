@@ -1,0 +1,94 @@
+# String
+
+a = 'hello'
+b = "hello"
+c = ''' hello'''
+d = """hello"""
+
+m = "I'm Xiaoming"
+n = 'Xiaoming said:"I am Xiaoming"'
+x = '''Xiaoming said:"I'm Xiaoming"'''
+y ="""Xiaoming said:"I'm Xiaoming" """
+
+
+
+#------------------------------------------
+# 字符串中的转义字符 “\”（ escape character ）
+'''
+\' ==>显示一个普通的单引号
+\" ==>显示一个普通额双引号
+\n ==> 表示换行
+\t ==> 表示显示一个制表符（相当于tab键，生成4个空格）
+\\ ==> 表示一个普通的反斜杠
+r'字符串' ==> 原生显示单引号''内的内容
+'''
+m = 'I\'m Xiaoming'
+n = "Xiaoming said:\"I am Xiaoming\""
+
+
+
+#---------------------------------------------------
+# Subscript and Slice (下表和切片)
+'''
++ 计算机中，下标都是从0开始的
++ 字符串是不可变的数据类型，可以通过下标进行查询，但不能进行修改替换
++ 切片是从字符串里复制一段指定的内容，生成一个新的字符串
+
+'''
+word = 'zhangsan'
+print('word[4]')
+
+m = 'abcdefghijklmnopqrstuvwxyz'
+print(m[5])     # m[index] ==> 获取指定下标上的数据
+
+# 切片语法 m[start:end:step],需注意包含start数据，不包含end数据
+m[2:9:1]
+print(m[2:9]) 
+print(m[2:])  #如果只设置了start，会截取到最后
+print(m[:9])  #如果只设置了end，会从头开始截取
+
+# step指的是步长，理解为间隔，步长默认为1，不能为0，可以为负数，当为负数时表示从右往左
+print(m[::])    # 从头到尾打印
+print(m[::-1])  # 从尾到头逆向打印
+
+print(m[-9:-5]) # start 和 end为负数时，表示从右边开始数，最右边为-1，而不是0
+
+
+
+# --------------------------------------------
+# 字符串常见的操作
+
+# 获取字符串长度
+x ='abcdefghijklmn'
+print(len(x))        # get the length of string
+
+
+# 查找内容相关的方法， find/index/rfind/rindex 可以获取指定字符的下标
+print(x.find('l'))   # 从左开始查询，如果字符在字符串里不存在，该方法会返回 -1。注意，如果字符窜中存在两个及以上查找字符时，该方法给出的是最小的索引值
+print(x.index('l'))  # 从左侧开始查询，如果查找的字符不在字符串内，会报错。注意，如果字符窜中存在两个及以上查找字符时，该方法给出的是最小的索引值
+
+print(x.rfind('l'))  # 从右侧开始查询，如果字符在字符串里不存在，该方法会返回 -1。注意，如果字符窜中存在两个及以上查找的字符时，该方法给出的是最大的索引值
+print(x.rindex('l'))  # 从右侧开始查询，如果查找的字符不在字符串内，会报错。注意，如果字符窜中存在两个及以上查找的字符时，该方法给出的是最大的索引值
+
+
+# 判断相关 startswith，endswith,isalpha,isdigit,isalnum,isspace
+
+x = 'Hello'
+print(x.startswith('h'))    # 注意字母区分大小写
+print(x.endswith('o'))
+print(x.isalpha())
+print(x.isdigit())          # 含有小数点的数字字符串判断结果为False，只有当是纯数字字符串时才是True
+print(x.isalnum())          # 只要只有字母或数字，都返回True
+print(x.isspace())
+
+
+
+# 统计次数  count
+
+x = 'Long long ago, there a hero named Anna lived in Kitchener'
+print(x.count('e'))
+
+
+
+# 替换
+
