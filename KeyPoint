@@ -90,5 +90,30 @@ print(x.count('e'))
 
 
 
-# 替换
+# 替换 replace
+
+word = 'hello'
+print(word.replace('l','x'))
+
+
+
+# 内容分割 split,rsplit,splitlines, partition 和 rpartition
+
+x = 'zhangsan,lisi,wangwu,jerry,henry,merry,jack,tony'
+print(x.split(','))
+print(x.split())                                           # split 可以将一个字符串切割成一个列表，默认分隔符为' '
+y = 'zhangsan-lisi-wangwu-jerry-henry-merry-jack-tony'
+print(y.split('-'))
+print(y.split('-',3))                                      # 默认情况下时，满足情况的均进行分割，如指定分割数量，则从左侧开始按照设定数量进行分割，
+print(y.split())
+z = 'zhangsan lisi wangwu jerry henry merry jack tony'
+print(z.split(' '))
+print(z.split())
+
+print(x.rsplit(','))                                      # 不指定分割数量时，其结果与split一致
+print(x.rsplit(',',2))                                    # 指定分割数量时，从右侧开始进行分割
+
+word = 'abcdefghixmpqrst'
+print（word.partition('x')）                 # partition 指定一个字符或字符串作为分隔符，将字符串分为三部分：前面，分隔符，后面。当字符串中有多个分隔符时，以第一个出现为准
+print(x.partition(','))
 
