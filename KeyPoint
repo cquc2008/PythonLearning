@@ -117,3 +117,72 @@ word = 'abcdefghixmpqrst'
 print（word.partition('x')）                 # partition 指定一个字符或字符串作为分隔符，将字符串分为三部分：前面，分隔符，后面。当字符串中有多个分隔符时，以第一个出现为准
 print(x.partition(','))
 
+
+# 修改大小写 capitalize, upper, lower
+
+print('hello world'.capitalize())  # 仅将字符串的第一个单词的首字母大写
+
+print('hello world'.upper())  # 将所有字母大写
+
+print('Hello World'.lower())  # 将所有字母小写
+
+print('hello world'.title())  # 将各词的首字母大写
+
+print('hELLO wORLD'.title())  # 将各词的首字母大写
+
+
+
+# 空格处理 ljust, rjust，center
+
+print('Monday'.ljust(10, '*'))  # ljust用于将字符串按指定长度显示，如果字符串长度不够，用指定符号从右侧占位，默认为空格
+
+print('Monday'.rjust(10, '+'))  # rjust用于将字符串按指定长度显示，如果字符串长度不够，用指定符号从左侧占位，默认为空格
+
+print('Monday'.center(10, '*'))  # center让字符串居中，两边用指定符号占位
+
+print('    apple    '.lstrip())  # 去除字符串左边的空格
+
+print('    apple    '.rstrip())  # 去除字符串右侧的空格
+
+print('    banana    '.strip())  # 去除字符串两侧的所有空格
+
+
+
+# 将列表转换为字符串
+
+fruits = ['apple','pear','peach','banana','orange','grape']
+print('-'.join(fruits))
+print('*'.join('hello'))
+
+
+
+
+
+# 字符集  字符 ==》 编码 ==》 转换为二进制进行保存
+'''
++ ASCII --> Latin1 ---> Unicode 编码
+
++ 字符 --> 数字编码存在一个对应关系
+
+ASCII 码表使用一个字节来表示一个字符。最多只能表示128个，不适用最高位
+
+0000 0000 最小 为 0
+0111 1111 最大 为 127
+
++ GBK(国标扩，简体中文，汉字占两个字节), UTF-8（统一编码，汉字占3个字节）, BIG5（繁体中文）
+
+'''
+print(bin(97))  # 将十进制转化为二进制
+
+print(ord('a'))  # ord() 用于查询字符对应的编码
+print(ord('爱'))
+print(chr(65))  # chr()根据编码获取对应的字符
+print(chr(29233))
+
+print('你'.encode('gbk'))  # 使用字符串的encode方法，将字符串转化为指定编码集结果
+print('你'.encode('utf-8'))
+print('你'.encode('big5'))
+
+x = b'\xe4\xbd\xa0'
+print(x.decode('utf8'))  # 使用decode将一个编码集的结果，转化成为对应的字符
+
