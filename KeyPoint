@@ -241,11 +241,44 @@ else:
 
 + %.nf ==> 表示结果保留小数点后 n 位
 
++ %x ==> 将数字使用十六进制输出
+
++ %% ==> 输出一个 % 号
+
 '''
 name = 'zhang san'
 age = 18
 money = 280.65
 print('大家好，我的名字是', name, ',我今年', age, '岁了', sep='')
 print('大家好，我的名字是%s，我今年%d岁了，今天我挣了%f元钱' % (name, age,money))
+
+print('大家好，我是%2d选手' % 5)
+print('大家好，我是%-2d选手' % 5)
+print('大家好，我是%2d选手' % 120)
+print('该商品价值为%.1f元' % 5)
+print('该商品价值为%.2f元' % 2.345)
+
+a = 100
+print('%x' % a)
+
+
+# 字符串format方法，{}也可以进行占位
+
+print('大家好，我是{}，我今年{}岁了'.format('Anna',5))   # {}内什么也不写，会读取后面的内容，一一对应填充
+
+print('大家好，我是{1}，我今年{0}岁了'.format(5, 'Anna'))  # {数字}，根据数字的顺序来进行填入，注意，数字是从0开始
+
+print('大家好，我是{name}，我今年{age}岁了，来自{addr}'.format(age=18,name='Anna',addr='China'))   # {变量名}，根据变量名进行填充
+
+info = {'name': 'Anna', 'age': 18, 'addr': 'China', 'height': 185}
+c = '大家好，我是{name}，我今年{age}岁了，我来自{addr}，身高{height}cm'.format(**info)
+print(c)
+
+
+
+
+
+
+
 
 
