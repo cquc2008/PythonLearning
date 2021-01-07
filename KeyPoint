@@ -186,3 +186,66 @@ print('你'.encode('big5'))
 x = b'\xe4\xbd\xa0'
 print(x.decode('utf8'))  # 使用decode将一个编码集的结果，转化成为对应的字符
 
+
+
+# 成员运算符  in 和 not in 。用来判断一个内容在可迭代对象里是否存在
+
+# 判断用户输入的字符在已有字符串里是否存在
+
+# METHOD 1
+word = 'hello'
+word_input = input('Please input a character:')
+
+for i in word:
+    if word_input == i:
+        print('Your input character is in the existing string')
+        break
+else:
+    print('Sorry, we cannot find your input character in the existing string')
+
+
+# METHOD 2
+word = 'hello'
+word_input = input('Please input a character:')
+
+if word.find(word_input) == -1:
+
+    print('Sorry,we cannot find your input in the existing string')
+else:
+    print('Your input character is in the existing string')
+
+
+# METHOD 3
+word = 'hello'
+word_input = input('Please input a character:')
+
+if word_input in word:
+    print('Your input character is in the existing string')
+else:
+    print('Sorry, we cannot find your input character in the existing string')
+    
+    
+    
+    
+# 使用 % 占位符来表示格式化一个字符串
+'''
++ 在字符串里可以使用 % 占位符
+
++ %s ==> 表示的是字符串的占位符
+
++ %d ==> 表示的是整数的占位符
+
++ %nd ==> 表示打印时，显示n位，如果不够，在前面使用空格补齐
+
++ %f ==> 表示浮点数的占位符
+
++ %.nf ==> 表示结果保留小数点后 n 位
+
+'''
+name = 'zhang san'
+age = 18
+money = 280.65
+print('大家好，我的名字是', name, ',我今年', age, '岁了', sep='')
+print('大家好，我的名字是%s，我今年%d岁了，今天我挣了%f元钱' % (name, age,money))
+
+
