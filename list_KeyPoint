@@ -1,0 +1,100 @@
+# 当有多个数据需要有序保存时，可以考虑使用列表
+
+# 使用[]来表示一个列表，列表里的每一个数据我们称之为元素，元素之间使用逗号进行分割
+names = ['zhangsan', 'lisi', 'wangwu', 'jack', 'guanyu', 'zhangfei']
+print(names)
+
+# 可以使用list(可迭代对象)将可迭代对象转换为一个列表
+names = ('zhangsan', 'lisi', 'wangwu', 'jack', 'guanyu', 'zhangfei')  # 小括号生成元组数据，此时names为元组，元组时可迭代对象
+print(list(names))  # 经list转化，元组数据可变为列表数据
+
+# 列表和字符串一样，都可以使用下标来获取元素和对元素进行切片，不同的是，列表可以通过下标修改列表里的元素
+names = ['zhangsan', 'lisi', 'wangwu', 'jack', 'guanyu', 'zhangfei']
+print(names)
+names[3]='貂蝉'
+print(names)
+
+## 也可以通过下标对列表进行切片
+names = ['zhangsan', 'lisi', 'wangwu', 'jack', 'guanyu', 'zhangfei']
+print(names[1:5])
+
+
+
+#------------------------------------------------------------
+# 列表的操作：增、删、改、查
+
+# 列表是用来保存多个数据的，列表是有序可变的
+
+heros = ['阿珂', '嬴政', '韩信', '露娜', '后羿', '亚瑟', '李元霸']
+print(heros)
+
+countries = ['China', 'Canada', 'USA', 'Australia', 'Japan']
+print(countries)
+
+'''
+
+# 列表的增加数据操作
+    + append 在末尾添加元素
+    + insert 在指定位置插入元素
+    + extend 合并两个列表
+# 列表的删除元素
+    + pop      默认删除列表里最后一个数据,并且返回这个删除的元素；pop还可以传入index参数，用来删除指定位置上的数据；该方法相当与append的反向操作
+    + remove   用于删除指定的元素，如果数据在列表中不存在，会报错；当列表中有多个相同的移除元素时，仅移除第一个元素
+    + clear    用来清空一个列表
+# 列表内元素的查询
+    + index
+    + count
+    + in 运算符
+# 修改元素 使用小标可以直接修改列表里的元素
+    
+    
+'''
+# 添加元素的方法：append，insert，extend
+heros.append('Jack')  # 在列表末尾添加元素
+print(heros)
+
+heros.insert(4, 'Honrey')  # 在列表指定位置添加元素
+print(heros)
+
+heros.extend(countries)  # extend(iterable) 需要一个可迭代对象；A.extend(B) ==> 将可迭代对象B添加到A
+print(heros)
+
+master = ['王昭君', '甄姬', '貂蝉', '妲己', '小乔', '大乔']
+print(master)
+
+x = master.pop()  # 默认删除列表最后一个元素，并且返回该删除的数据
+print(x)
+print(master)
+y = master.pop(2)  # 当指定index数据时，pop可以删除指定位置上的元素，并返回该删除的元素
+print(y)
+print(master)
+
+master.remove('妲己')  # remove 移除指定的元素
+print(master)
+# m = master.remove('Jack')  # 如指定元素不存在，会报错
+# print(m)
+# print(master)
+
+print(master)
+master.clear()  # clear用于清空一个列表中所有元素
+print(master)
+
+# 查询相关的方法
+tanks = ['亚瑟', '程咬金', '顿山', '张飞', '廉颇', '亚瑟']
+print(tanks.index('张飞'))  # 返回查询元素在列表中位置的索引值
+# print(tanks.index('Jack'))  # 如果查询元素不存在，会报错
+
+print(tanks.count('亚瑟'))  # 统计列表中指定元素的个数
+
+# tanks.remove('亚瑟')
+# print(tanks)
+
+# in 运算符
+print('张飞' in tanks)
+
+# 修改元素  通过下标直接修改列表里的元素
+print(tanks)
+tanks[3] = 'Anna'
+print(tanks)
+
+
