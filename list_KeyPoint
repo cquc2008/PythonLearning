@@ -204,4 +204,31 @@ print('修改后，nums1={}，nums2={}'.format(id(nums1),id(nums2)))
 
 
 
+x = [100, 200, 300]
+
+y = x  # x和y同时指向了同一个内存空间，会相互影响；等号是内存地址的赋值
+print(y)
+
+x[0] = 1
+print(x)
+print(y)
+
+#调用list的copy方法，可以复制一个列表，这个新列表和原有的列表内容一样，但是指向不同的内存
+z=x.copy()
+x[1]=2
+print(x)
+print(z)
+
+x[0] = 1
+print(x)
+print(y)
+print(z) 
+
+
+# 除了使用list自带的copy方法以外，还可以使用copy模块实现拷贝
+import copy
+
+a=copy.copy(x) # 效果等价于x.copy(),都是一个浅拷贝
+
+
 
