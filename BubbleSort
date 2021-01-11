@@ -49,3 +49,20 @@ while j < len(numbers):
     
 print(numbers)
 
+
+
+# 调用list的sort方法可以直接对列表进行排序
+
+numbers = [6, 5, 3, 1, 8, 7, 2, 4]
+print(numbers)
+
+numbers.sort(numbers)
+print(numbers)
+
+
+
+
+
+
+
+
