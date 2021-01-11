@@ -163,10 +163,43 @@ print(b)
 
 
 #---------------------------------------------------
-# 列表的复制
+# 列表的反转 reverse
+
+names = ['zhangshan', 'lisi', 'wangwu']
+print(names)
+print(names[::-1])
+names.reverse()  # 该方法效果和 names[::-1] 一样
+print(names)
 
 
+# 列表的复制 copy
+'''
+Python 中的数据都是保存在内存里的
+Python中的数据又分为可变类型和不可变类型
+    + 不可变类型：字符串，数字，元组
+    + 可变类型：列表，字典，集合
+    
+不可变数据类型，如果修改值，内存地址会发生变化
+可变数据类型，如果修改值，内存地址不会发生变化
 
+使用内置函数 id 可以获取到一个变量的内存地址
+
+'''
+
+a=12
+b=a
+print('修改前，a={},b={}'.format(id(a),id(b)))
+
+a=10
+print('修改后，a={},b={}'.format(id(a),id(b)))
+
+
+nums1=[100,200,300]
+nums2=nums1
+print('修改前，nums1={}，nums2={}'.format(id(nums1),id(nums2)))
+
+nums1[0]=1
+print('修改后，nums1={}，nums2={}'.format(id(nums1),id(nums2)))
 
 
 
