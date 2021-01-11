@@ -231,4 +231,10 @@ import copy
 a=copy.copy(x) # 效果等价于x.copy(),都是一个浅拷贝
 
 
+# 切片其实就是一个浅拷贝
+names1 = ['张三','李四','王五','杰克']
+names2 = names1[::]
+names1[0] = ['Jerry']
+print(names2)
+
 
