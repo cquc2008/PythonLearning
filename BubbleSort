@@ -51,7 +51,7 @@ print(numbers)
 
 
 
-# 调用list的sort方法可以直接对列表进行排序
+# 调用list的sort方法可以直接对列表进行排序。sort方法时直接对原有list进行排序
 
 numbers = [6, 5, 3, 1, 8, 7, 2, 4]
 print(numbers)
@@ -61,8 +61,14 @@ print(numbers)
 
 
 
+# 使用内置函数sorted（） 排序。sorted函数区别于list的类函数sort，其不对list本身产生更改，而是生成副本
 
+numbers = [6, 5, 3, 1, 8, 7, 2, 4]
+print(numbers)
 
+x = sorted(numbers)
+print(numbers)
+print(x)
 
 
 
