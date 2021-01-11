@@ -98,3 +98,65 @@ tanks[3] = 'Anna'
 print(tanks)
 
 
+#-------------------------------------------------------
+# 列表的遍历：遍历即对列表中所有的数据都访问一遍。遍历针对的是可迭代对象
+
+# while 循环遍历和 for... in 循环遍历
+
+# for ... in 循环遍历，其本质是不断调用迭代器的 next 方法查找下一个数据
+killers = ['李白', '兰陵王', '韩信', '赵云', '阿珂', '孙悟空']
+
+for k in killers:
+    print(k)
+
+# while循环
+i = 0
+while i < len(killers):
+    print(killers[i])
+    i += 1
+
+
+# 交换两个变量的值
+# Method 1 使用第三方变量
+a = 13
+b = 20
+print(a)
+print(b)
+
+c = a
+a = b
+b = c
+print(a)
+
+# Method 2 使用运算符实现，该方法只能是数字
+a = 13
+b = 20
+print(a)
+print(b)
+
+a = a + b
+b = a - b
+a = a - b
+print(a)
+print(b)
+
+
+# Method 3 使用异或运算符，也只能是数字
+a = 13
+b = 20
+
+a = a ^ b
+b = a ^ b
+a = a ^ b
+print(a)
+print(b)
+
+# Method 4 使用Python中特有的。 该方法可用于数字或字符都可以
+a = 13
+b = 20
+print(a)
+print(b)
+
+a, b = b, a
+print(a)
+print(b)
