@@ -12,7 +12,22 @@ print(max_value)
 
 
 
-# METHOD 2 using "for ... in" loop
+# METHOD 2
+
+nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
+
+max_value = nums[0]
+count = 0
+for num in nums:
+    if num>= max_value:
+        max_value = num
+        count+=1
+print('The max value of list is {},and the location of the value is {}'.format(max_value,count))
+
+
+
+
+# METHOD 3 using "for ... in" loop
 
 nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
 
@@ -27,14 +42,14 @@ print('The max value of the list is {}, the location of the value is {}'.format 
 
 
 
-# METHOD 3 using buildin function "max"
+# METHOD 4 using buildin function "max"
 
 nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
 
 print(max(nums))
 
 
-# METHOD 4 使用list的类函数 sort
+# METHOD 5 使用list的类函数 sort
 
 nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
 
