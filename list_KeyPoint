@@ -243,3 +243,43 @@ print(names2)
 # List 的嵌套（nested）
 
 
+#------------------------------------------------------
+# list的推导式:是使用简单的语法创建一个列表
+
+nums = [i for i in range(10)]
+print(nums)
+'''
+# 等效于下面的代码
+nums = []
+for i in range(10):
+    nums.append(i)
+print(nums)
+'''
+
+
+x = [i for i in range(10) if i % 2 == 0]
+print(x)
+
+'''
+# 等效于：
+x = []
+for i in range(10):
+    if i % 2 == 0:
+        x.append(i)
+print(x)
+'''
+
+
+
+# points 是一个列表，这个列表里的元素都是元组
+points =[(x,y) for x in range(5,9) for y in range(10,20)]
+print(points)
+
+'''
+# 等效于
+points =[]
+for x in range(5,9):
+    for y in range(10,20):
+        points.append((x,y))
+print(points)
+'''
