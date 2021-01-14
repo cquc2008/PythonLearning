@@ -15,8 +15,8 @@
         - 采用 list(iterable),将可迭代对象转换为列表
         — 采用 set(iterable)，将可迭代对象转换为集合
 '''
-words=['hello','yes','good','hi','bye'] #列表使用[]表示
-nums=(9,4,3,1,7,6)# 元组使用()表示
+words = ['hello', 'yes', 'good', 'hi', 'bye']  # 列表使用[]表示
+nums = (9, 4, 3, 1, 7, 6)  # 元组使用()表示
 
 print(words[3])
 print(nums[3])
@@ -25,17 +25,17 @@ print(nums[1:3])
 print(nums.index(3))
 print(nums.count(2))
 
-age= (18) #该书写方式，age是一个整数，并非是一个元组
+age = (18)  # 该书写方式，age是一个整数，并非是一个元组
 print(type(age))
 
-ages=(18,) # 如果元组里只有一个元素，要在最后面加逗号‘，’
+ages = (18,)  # 如果元组里只有一个元素，要在最后面加逗号‘，’
 print(type(ages))
 
 print(tuple('hello'))
 print(set('hello'))
 print(list('hello'))
 
-letters=tuple('hello')
+letters = tuple('hello')
 print(''.join(letters))
 
 # 元组的遍历。采用while 语句或 for...in 语句实现
