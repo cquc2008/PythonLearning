@@ -1,0 +1,27 @@
+'''
+In a school, there are 3 offices, how to assign 8 teachers to the 3 offices? Please write a program to complete random assignment。
+'''
+
+import random
+
+teachers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+rooms = [[], [], []]
+
+for teacher in teachers:
+    room = random.choice(rooms)  # choice从列表里随机选择一个数据
+    room.append(teacher)
+print(rooms)
+print('there are {} people in room1, {} people in room2 and {} people in room3'.format(len(rooms[0]),len(rooms[1]),len(rooms[2])))
+
+# 带下标我们一般都使用while语句实现，但for...in语句也可以实现下标的提取，需要使用enumerate函数
+'''
+for i, room in enumerate(rooms):
+    print('there are {} teachers in room{}. They are:'.format(len(room), i), room)
+'''
+
+for i, room in enumerate(rooms):
+    print('there are {} teachers in room{}, they are:'.format(len(room),i))
+    for teacher in room:
+        print(teacher,end='\t')
+    print() 
+    
