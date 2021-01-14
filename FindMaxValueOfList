@@ -1,0 +1,46 @@
+# METHOD 1   using "while" loop
+
+nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
+
+i = 0
+while i < len(nums) - 1:
+    if nums[i] >= nums[i + 1]:
+        max_value = nums[i]
+        nums[i], nums[i + 1] = nums[i + 1], nums[i]
+    i += 1
+print(max_value)
+
+
+
+# METHOD 2 using "for ... in" loop
+
+nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
+
+max_value = nums[0]
+for i in nums:
+    if i >=max_value:
+        max_value = i
+print(max_value)
+print('The max value of the list is %d, the location of the value is %d' % (max_value,nums.index(max_value)))
+print('The max value of the list is {}, the location of the value is {}'.format (max_value,nums.index(max_value)))
+
+
+
+
+# METHOD 3 using buildin function "max"
+
+nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
+
+print(max(nums))
+
+
+# METHOD 4 使用list的类函数 sort
+
+nums = [3, 1, 9, 8, 4, 2, 0, 7, 5]
+
+nums.sort()
+print(nums[-1])
+
+nums.sort(reverse = True)
+print(nums[0])
+
