@@ -123,10 +123,11 @@ delete the "" in list
     for word in words:
         if word !='':
             new_words.append(word)
-    print(new_words)
+    words = new_words
+    print(words)
 
     
-  # Method 1
+  # Method 2
     words = ['hello', 'good', '', '', 'yes', 'okay', '']
     print(words)
 
@@ -139,7 +140,7 @@ delete the "" in list
     print(words)
     
     
-  # Method 2
+  # Method 3
   
     words = ['hello', 'good', '', '', 'yes', 'okay', '']
     print(words)
