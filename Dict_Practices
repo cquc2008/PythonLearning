@@ -1,0 +1,56 @@
+# PRACTIC 1
+
+'''
+user input names, if the name is in the list, return 'The name has existed'; else, show the information 'a new name', 
+and ask user to input the age.
+'''
+
+persons = [
+    {'name': 'zhangsan', 'age': 18},
+    {'name': 'lisi', 'age': 20},
+    {'name': 'wangwu', 'age': 19},
+    {'name': 'jerry', 'age': 21}
+]
+
+input_name = input('Please input your name:').lower()
+
+for person in persons:
+    if person['name'] == input_name:
+        print('The name has existed')
+        break
+else:
+    print('It is a new name')
+    new_person = {'name': input_name}
+    input_age = int(input('please input your age:'))
+    new_person['age'] = input_age
+    persons.append(new_person)
+
+for i in persons:
+    print(i)
+    
+    
+    
+# Method improved
+
+persons = [
+    {'name': 'zhangsan', 'age': 18},
+    {'name': 'lisi', 'age': 20},
+    {'name': 'wangwu', 'age': 19},
+    {'name': 'jerry', 'age': 21}
+]
+
+input_name = input('Please input your name:').lower()
+
+for person in persons:
+    if input_name in person.values():
+        print('The name has existed')
+        break
+else:
+    print('It is a new name')
+    new_person = {'name': input_name}
+    input_age = int(input('please input your age:'))
+    new_person['age'] = input_age
+    persons.append(new_person)
+
+for i in persons:
+    print(i)
