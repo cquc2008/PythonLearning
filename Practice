@@ -150,3 +150,18 @@ delete the "" in list
         if word == '':
             words.remove(word)
     print(words)
+    
+    
+    
+    
+    #----------------------------------------------------------------------------------
+    # dict 练习
+    
+    # PRACTICE 9
+    
+    
+    
+    
+    
+    
+    
