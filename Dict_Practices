@@ -99,41 +99,37 @@ there is a list include a lot of student's information. do the following things:
 '''
 
 students = [
-    {'name':'zhangsan','age':18,'score':98,'tel':'1388888998','gender':'female'},
-    {'name':'lisi','age':28,'score':95,'tel':'1388667789','gender':'male'},
-    {'name':'wangwu','age':21,'score':98,'tel':'1368999990','gender':'unknown'},
-    {'name':'jack','age':17,'score':58,'tel':'1338996845','gender':'male'},
-    {'name':'chris','age':23,'score':52,'tel':'1399999999','gender':'female'},
-    {'name':'tony','age':15,'score':89,'tel':'1398998888','gender':'unknown'}
+    {'name': 'zhangsan', 'age': 18, 'score': 98, 'tel': '1388888998', 'gender': 'female'},
+    {'name': 'lisi', 'age': 28, 'score': 95, 'tel': '1388667789', 'gender': 'male'},
+    {'name': 'wangwu', 'age': 21, 'score': 98, 'tel': '1368999990', 'gender': 'unknown'},
+    {'name': 'jack', 'age': 17, 'score': 58, 'tel': '1338996845', 'gender': 'male'},
+    {'name': 'chris', 'age': 23, 'score': 52, 'tel': '1399999999', 'gender': 'female'},
+    {'name': 'tony', 'age': 15, 'score': 89, 'tel': '1398998888', 'gender': 'unknown'}
 ]
 
 # count the number who failed in example
 fail_num = 0
 for student in students:
-    if student['score']<60:
+    if student['score'] < 60:
         fail_num += 1
 print('There are {} students failed in the example'.format(fail_num))
 
 # print the students' name and score who failed in example
 for student in students:
-    if student['score']<60:
-        print(student['name'],student['score'])
-
-
+    if student['score'] < 60:
+        print(student['name'], student['score'])
 
 # count the number of student who is nonage
 count_num = 0
 for student in students:
-    if student['age']<18:
-        count_num+=1
+    if student['age'] < 18:
+        count_num += 1
 print('There are {} nonage in the class'.format(count_num))
-
 
 # print student's name whose telephone number ends with '8'
 for student in students:
     if student['tel'][-1] == '8':
         print(student['name'])
-
 
 # print the student's name with the max score
 student_score = []
@@ -148,38 +144,34 @@ for student in students:
 
 # sort from A to B by score
 i = 0
-while i<len(students)-1:
-    if students[i]['score']>students[i+1]['score']:
-        students[i],students[i+1]=students[i+1],students[i]
-        j=i
+while i < len(students) - 1:
+    if students[i]['score'] > students[i + 1]['score']:
+        students[i], students[i + 1] = students[i + 1], students[i]
+        j = i
         flag = True
-        while j>0:
-            if students[j]['score']<students[j-1]['score']:
-                students[j],students[j-1]=students[j-1],students[j]
+        while j > 0:
+            if students[j]['score'] < students[j - 1]['score']:
+                students[j], students[j - 1] = students[j - 1], students[j]
                 flag = False
             if flag == True:
                 break
-            j-=1
-    i+=1
+            j -= 1
+    i += 1
 for student in students:
     print(student)
-
-
 
 
 
 # delete the student's information if the gender of this student is 'unknown'
 i = 0
-while i<len(students):
-    if students[i]['gender']=='unknown':
+while i < len(students):
+    if students[i]['gender'] == 'unknown':
         students.pop(i)
-        i-=1
-    i+=1
+        i -= 1
+    i += 1
 
 for student in students:
     print(student)
-
-
 
 
 
