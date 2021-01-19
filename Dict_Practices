@@ -175,7 +175,74 @@ for student in students:
 
 
 
+#---------------------------------------------------------------------------------------------
+# PRACTICE 3
+'''
+# using three tuples to represent the students' information of three courses
 
+    + find how many students totally in the three courses
+    + show students' name and numbers who just take one course
+    + show the number of student and their name in the first course 
+    + show the number of student and their name who take two courses
+    + show the number of student and their name who take all courses
+'''
+sing = ('libai', 'baijuyi', 'liqingzhao', 'dufu', 'wangchangling', 'wangwei', 'menghaoran', 'wanganshi')
+dance = ('lishangyin', 'dufu', 'libai', 'baijuyi', 'censhen', 'wangchangling')
+rap = ('liqingzhao', 'liuyuxi', 'censhen', 'wangchangling', 'sushi', 'wangwei', 'libai')
+
+# total number of student in three class
+# Method 1
+count = len(sing)
+for dancer in dance:
+    if dancer in sing:
+        pass
+    else:
+        count += 1
+for rapper in rap:
+    if rapper in sing + dance:
+        pass
+    else:
+        count += 1
+print('There are totally {} students taking the three courses'.format(count))
+
+# Method 2 使用集合（set） 去重复
+total = sing + dance + rap
+x = set(total)
+count = len(x)
+print('There are totally {} students taking the three courses'.format(count), 'There names are:', x)
+
+# number of student and their name who only take the sing course
+count = 0
+for singer in sing:
+    if singer not in dance + rap:
+        count += 1
+        print(singer)
+print('There are totally {} students who only take the sing course'.format(count))
+
+# number of student who only take one course and print their name
+total = sing + dance + rap
+count = 0
+for student in total:
+    if total.count(student) == 1:
+        print(student)
+        count += 1
+print('There are {} students who only take one course'.format(count))
+
+# Method 2 using dictionary
+
+p_dict = {}
+all_students = sing + dance + rap
+for name in all_students:
+    if name not in p_dict:
+        p_dict[name] = all_students.count(name)
+# print(p_dict)
+for name, count in p_dict.items():
+    if count == 1:
+        print(name, 'takes only one course')
+    elif count == 2:
+        print(name, 'takes tow course')
+    else:
+        print(name, 'takes three courses')
 
 
 
