@@ -1,0 +1,35 @@
+'''
+# using three tuples to represent the students' information of three courses
+
+    + find how many students totally in the three courses
+    + show students' name and numbers who just take one course
+    + show the number of student and their name in the first course
+    + show the number of student and their name who take two courses
+    + show the number of student and their name who take all courses
+'''
+
+sing = {'libai', 'baijuyi', 'liqingzhao', 'dufu', 'wangchangling', 'wangwei', 'menghaoran', 'wanganshi'}
+dance = {'lishangyin', 'dufu', 'libai', 'baijuyi', 'censhen', 'wangchangling'}
+rap = {'liqingzhao', 'liuyuxi', 'censhen', 'wangchangling', 'sushi', 'wangwei', 'libai'}
+
+# find how many students totally in the three courses
+# students = sing+dance+rap
+# total_nums = set(students)
+total_nums = len(sing | dance | rap)
+print('Total number of students is {} '.format(total_nums))
+
+# show the number of student and their name in the first course
+print('The number of students who take the sing course is {} '.format(len(sing)), ', and their name are:', sing)
+
+# show students' name and numbers who just take one course
+# show the number of student and their name who take two courses
+# show the number of student and their name who take all courses
+
+one_course = (sing | dance | rap) - ((sing & dance) | (dance & rap) | (rap & sing))
+print('There are {} student who only take one course'.format(len(one_course)), 'and they are:', one_course)
+
+three_course = (sing & dance) & (dance & rap) & (sing & rap)
+print('There are {} students take three course'.format(len(three_course)), ', and they are:', three_course)
+
+two_course = ((sing & dance) | (dance & rap) | (rap & sing)) - ((sing & dance) & (dance & rap) & (rap & sing))
+print('There are {} students take two course'.format(len(two_course)), ', and they are:', two_course)
