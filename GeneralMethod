@@ -1,0 +1,15 @@
+'''
+# '+' can be used to join string,list and tuple
+    
+# '-' can only used to set, used to get the proper subset(差集)
+
+# '*' can be used to string,tuple and list, means repeat these items. cannot used to dict and set
+
+# in:成员运算符，可以用到字符串，列表，元组和集合。注意用于字典时，只能针对key进行操作，而不能用于value
+
+# 通过 for... in 可以实现遍历字符串，列表，字典，集合等可迭代对象
+
+# enumerate：内置类，任何可迭代对象都可以使用enumerate内置类进行包装成一个enumerate对象，对enumerate进行遍历操作，可以同时得到可迭代对象的下标和元素
+
+# 
+'''
