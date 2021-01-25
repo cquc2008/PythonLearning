@@ -45,8 +45,37 @@
                     
                shang,yushu = test(13,5)   # 自动拆包
                print('商是{}，余数是{}'.format(shang,yushu))
-
+    
+    
+    + 默认参数的使用
+        - 缺省参数就是，如果你传递了参数，就是用传递参数，如果没有传递参数，就是用默认的值
+        - 缺省参数要放置在后面
+        - 如果有位置参数和关键字参数，关键字参数一定要放在位置参数的后面
+    
+    + 可变参数的使用
+        - 可以通过列表，元组，集合等数据格式传递数据进行多个参数的处理
+        
+        
+        
+        
+        
+               
+    
 '''
+
+
+# # 定义一个函数，求 n 到 m 之间所有整数之和
+# def sum1(n, m):
+#     '''
+#     求两个数字之间整数的和
+#     :param n: 起始值
+#     :param m: 终止值
+#     :return: 和
+#     '''
+#     sum = 0
+#     for i in range(n, m):
+#         sum += i
+#     return sum
 
 
 def factorial(n):
@@ -77,3 +106,16 @@ def fac_sum(n):
 
 
 print(fac_sum(5))
+
+
+# 可变参数的使用
+def add_many(iterable):
+    x = 0
+    for n in iterable:
+        x += n
+    return x
+
+
+print(add_many([1, 2, 3, 4, 5, 6]))
+print(add_many({3, 4, 5, 6, 7, 8, 9}))
+print(add_many((2, 4, 3, 12, 5, 7, 4)))
