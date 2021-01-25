@@ -74,6 +74,14 @@
         - 递归简单来说就是函数内部自己调用自己
         - 递归最重要的就是找到出口（停止的条件）
         
+    + 匿名函数
+        - 使用 lambda 关键词能创建小型匿名函数，这种函数得名于省略了用 def 声明函数的标准步骤
+        - lambda 函数的语法只包含一个语句，如下：
+            lambda 参数列表：运算表达式
+        - 匿名函数多用来表达一个简单的函数，函数调用的次数很少，基本上就是调用一次
+        - 调用匿名函数的方式：
+            。 给他定义一个名字（很少使用）
+            。 把这个函数当作参数传给另一个函数使用（使用场景比较多）
         
         
         
@@ -176,16 +184,66 @@ def multiply_many2(*args):
 print(multiply_many2())
 print(multiply_many2(2))
 
-
-
 # 递归函数的使用
 '''
-求1~n的和
+定义递归函数，求1~n的和
 '''
+
 
 def get_sum(n):
     if n == 0:
         return 0
     return get_sum(n - 1) + n
 
+
 print(get_sum(6))
+
+
+# 使用递归求 n!
+def factorial(n):
+    if n == 1:
+        return 1
+    return factorial(n - 1) * n
+
+
+print(factorial(5))
+
+
+# 使用递归求 Fibonacci 数列的第 n 个数字
+def fibonacci_recursion(n):
+    if n == 2:
+        return 1
+    elif n == 1:
+        return 1
+    return fibonacci_recursion(n - 1) + fibonacci_recursion(n - 2)
+
+
+print(fibonacci_recursion(10))
+
+
+# 匿名函数
+def calc(a, b, fn):  # fn 回调函数，此处fn相当与函数做另一个函数的参数；fn相当与add或minus的别名
+    # 注意指定fn对应的函数是只写函数名即可，不需要加括号
+    c = fn(a, b)
+    return c
+
+
+def add(x, y):
+    return x + y
+
+
+def minus(x, y):
+    return x - y
+
+
+x1 = calc(1, 2, add)
+x2 = calc(10, 5, minus)
+
+print(x1, x2)
+
+x3 = calc(5, 7, lambda x, y: x + y)
+x4 = calc(19, 3, lambda x, y: x - y)
+x5 = calc(2, 7, lambda x, y: x * y)
+x6 = calc(12, 3, lambda x, y: x / y)
+
+print(x3, x4, x5, x6)
