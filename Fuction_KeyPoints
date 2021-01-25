@@ -52,8 +52,28 @@
         - 缺省参数要放置在后面
         - 如果有位置参数和关键字参数，关键字参数一定要放在位置参数的后面
     
-    + 可变参数的使用
+    + 自定义可变参数
         - 可以通过列表，元组，集合等数据格式传递数据进行多个参数的处理
+    
+    + 可变参数
+        - *args 表示可变位置参数
+        - **kwargs 表示可变的关键字参数
+        - 多出来的可变位置参数会以元组的形式保存到args里
+        - 多出来的可变关键字参数会以字典的形式保存到kwargs里
+    
+    + 可变类型和不可变类型传参
+        -     
+        
+    + 函数的注意事项
+        - 函数的三要素：函数名，参数和返回值
+        - 在一些编程语言里，允许函数重名，但在Python的语言里不允许函数重名
+        - 如果函数重名，后一个函数会覆盖前一个函数
+        - python中 函数名也可以理解为一个变量名
+        
+    + 递归函数的使用
+        - 递归简单来说就是函数内部自己调用自己
+        - 递归最重要的就是找到出口（停止的条件）
+        
         
         
         
@@ -119,3 +139,53 @@ def add_many(iterable):
 print(add_many([1, 2, 3, 4, 5, 6]))
 print(add_many({3, 4, 5, 6, 7, 8, 9}))
 print(add_many((2, 4, 3, 12, 5, 7, 4)))
+
+
+# 可变参数
+def add(a, b, *args):  # *args 表示可变参数
+    print('a = {}, b = {}'.format(a, b))
+    print('args={}'.format(args))  # 多出来的可变参数会以元组的形式保存到args里
+
+
+add(8, 5, 6, 7, 82, 3, 4)
+
+
+# 求任意给定的数的乘积
+
+def multiply_many(a, b, *args):
+    c = a * b
+    for arg in args:
+        c *= arg
+    return c
+
+
+print(multiply_many(2, 4, 6, 8, 3, 6, 1, 9, 32))
+print(multiply_many(2, 4, 12, 6))
+
+
+def multiply_many2(*args):
+    results = 1
+    if len(args) == 0:
+        return 0
+    else:
+        for arg in args:
+            results *= arg
+        return results
+
+
+print(multiply_many2())
+print(multiply_many2(2))
+
+
+
+# 递归函数的使用
+'''
+求1~n的和
+'''
+
+def get_sum(n):
+    if n == 0:
+        return 0
+    return get_sum(n - 1) + n
+
+print(get_sum(6))
