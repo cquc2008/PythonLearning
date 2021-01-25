@@ -21,7 +21,7 @@ else:
 
 
 
-# METHOD 2
+# METHOD 2   Recursion Method
 
 def Fibonacci (n):
     if n == 1:
@@ -32,5 +32,7 @@ def Fibonacci (n):
         return Fibonacci(n-1) + Fibonacci(n-2)
         
 Fibonacci(10)
+
+
 
 
