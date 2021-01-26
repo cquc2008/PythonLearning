@@ -1,0 +1,62 @@
+'''
+# 数学相关
+    + abs()    # 求绝对值
+    + divmod() : 求两个数相除的商和余数，返回结果为元组，第一个值为商，第二个值为余数
+    + max
+    + min
+    + pow: 求幂运算
+    + round：用来指定保留的小数位数
+    + sum：求和
+
+# 可迭代对象相关
+    + all(iterable)  # 该函数会将可迭代对象转化为布尔值，如果转化后的布尔值均为True，则返回 True，否则返回 False
+    + any(iterable)  # 只要有一个元素转换为布尔值为 True ，则结果返回为 True
+    + len
+    + iter：获取到可迭代对象的迭代器
+    + next：for...in循环的本质就是调用迭代器的next方法
+    + sorted：排序
+
+# 转换相关的
+    + bin           # 将数字转化为二进制
+    + oct：将数字转化为八进制
+    + hex：将数字转为十六进制
+    + chr： 将字符编码转换为对应的的字符。    chr（97）==> a
+    + ord：将字符转化为对应的字符编码。       ord（‘a’）==> 97
+    + eval:执行字符串里的Python代码
+
+# 变量相关的
+    + globals：用来查看所有的全局变量
+    + locals： 用来查看所有的局部变量
+
+# 输入输出相关
+    + input
+    + print
+
+# 判断对象相关方法
+    + isinstance：判断一个对象是否是由一个类创建出来的
+    + issubclass：判断一个类是否是另一个类的
+
+
+# dir: 列出对象所有的属性和方法
+
+# help： 用来查看一个帮助文档
+
+# id：获取一个数据的内存地址
+
+# open：用来打开一个文件
+
+
+'''
+print(abs(-7))
+
+print(all(['hello', 'good', 'False']))
+print(all(['hello', 'good', 0]))
+print(all(['hello', 'good', 1]))
+print(all(['hello', 'good', False]))
+
+nums = [1, 2, 3]
+strs = 'hello'
+print(dir(nums))
+print(dir(strs))
+
+print(divmod(23, 7))
