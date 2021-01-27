@@ -1,0 +1,74 @@
+# 装饰器的使用
+import time
+
+def cal_time(fn):
+    def inner():
+        start = time.time()
+        s = fn()
+        end=time.time()
+        print('代码耗时',end-start)
+        return s
+
+    return inner
+
+
+@cal_time     # 第一件事情是调用cal_time函数；第二件事是将被装饰的函数demo传给fn；当再次调用demo函数时，这时的函数已经不再是demo函数，而是指向了inner函数
+def demo():
+    x = 0
+    for i in range(1, 100000000):
+        x += i
+    print(x)
+
+
+@cal_time
+def foo():
+    print('hello')
+    time.sleep(3)  # 休眠3秒钟
+    print('world')
+
+print('demo = ',demo)
+print('foo = ',foo)
+
+demo() #当再次调用demo函数时，这时的函数已经不再是demo函数，而是指向了inner函数
+foo()
+
+
+# ------------------------------------------------------------------------------------------------------------
+# 装饰器的实际应用
+'''
+# 已完成的一个程序
+def play_game(name,game):
+    print('{} is playing game {}'.format(name,game))
+
+play_game('Jack',"'RED ALARM'")
+play_game('Tony','STAR')
+
+# 需要对上述已完成的程序进行修改，增加控制时间的功能,在原有函数中增加时间参数:如果超过22点不让玩游戏，如果不告诉时间，默认不让玩游戏
+# 产品开发过程中的 开放封闭原则：已写好的功能代码尽可能不去修改，
+
+'''
+
+
+def can_play(fn):
+    def inner(x, y, *args, **kwargs):
+        clock = kwargs.get('clock', 23)  # 如果clock参数不存在，则采用默认值23
+        # clock = kwargs['clock']
+        # if args[0] <= 22:
+        if clock <= 22:
+            fn(x, y)
+        else:
+            print('It is too late, please go to bed!')
+
+    return inner
+
+
+@can_play
+# 已完成的程序
+def play_game(name, game):
+    print('{} is playing game {}'.format(name, game))
+
+
+play_game('Jack', "'RED ALARM'", clock=18)
+play_game('Tony',"'STAR'",clock=23)
+play_game('Tony', "'STAR'")
+
