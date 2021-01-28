@@ -1,0 +1,63 @@
+# ----------------------------------------------------------------------------------
+
+# 名片管理系统
+'''
+---------------------------------
+        名片管理系统 V1.0
+1.添加名片
+2.删除名片
+3.修改名片
+4.查询名片
+5.显示所有名片
+6.退出系统
+--------------------------------
+
+'''
+business_card = []
+person = {}
+while True:
+    print('------------------------------')
+    for i in ['    名片管理系统 V1.0', '1.添加名片', '2.删除名片', '3.修改名片', '4.查询名片', '5.显示所有名片', '6.退出系统']:
+        print(i)
+    print('------------------------------')
+
+    num_action = int(input('Please input the number which you want to do (only number from 1 to 6): '))
+
+    if num_action == 1:
+        name = input('Please input the name:')
+        age = int(input('Please input the age:'))
+        tel = input('Please input the telephone number:')
+        company = input('Please input the company name:')
+        person = {'name': name, 'age': age, 'tel': tel, 'company': company}
+        business_card.append(person)
+    elif num_action == 2:
+        name = input('please input the name needed to remove:')
+        for i, v in enumerate(business_card):
+            if v['name'] == name:
+                business_card.pop(i)
+                break
+        else:
+            print('The person is not in the list')
+    elif num_action == 3:
+        name = input('please input the name needed to be edited:')
+        for i, v in enumerate(business_card):
+            if v['name'] == name:
+                while True:
+                    edit_key = input("please input the new information(age,tel or company) or \exit to exit:")
+                    edit_value = input('please input the value:')
+                    if edit_key == 'exit':
+                        break
+                    else:
+                        v[edit_key] = edit_value
+    elif num_action == 4:
+        name = input('please input the name to get:')
+        for i in business_card:
+            if name in i:
+                print(i)
+        else:
+            print('Sorry, cannot find the person')
+    elif num_action == 5:
+        for i in business_card:
+            print(i)
+    else:
+        break
