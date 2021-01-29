@@ -1,1 +1,229 @@
+# ----------------------------------------------------------------------
+# 模块 （module）
+'''
+    + 在Python中，一个py文件，就可以理解为模块
+    + 不是所有的py文件都能作为一个模块来导入，要满足明明规则
+    + 如果想要让一个py文件能够被导入，模块名字必须要遵守命名规则
+    + Python为了方便开发，提供了恨过内置模块
+        - import time    # 使用 import 模块名 直接导入一个模块；导入模块后就可以使用这个模块里的方法和变量
+        - from random import randint # 使用 from 模块名 import 函数名， 导入一个模块里的方法或者变量
+        - from math import *    #  使用 from 模块名 import * 导入这个模块里的所有方法和变量
+        - import datetime as dt    # 导入一个模块并起一个别名
+        - from copy import deepcopy as dp   # from 模块名 import 函数名 as 别名
 
+
+----------------------------------------------------------------------------------------
+常见内置模块：
+    + OS（Operation System）模块：os模块里提供的方法是用来调用操作系统里的方法
+        - os.name ==> 获取操作系统的名字， windows系列 ==> nt / 非windows ==> posix
+        - os.sep  ==> 路径的分隔符
+        - os.pass
+            。 os.path.abspath  ==> 获取文件的绝对路径
+            。 os.path.isdir    ==> 用于判断是否是文件夹
+            。 os.path.isfile   ==> 用于判断是否是文件
+            。 os.path.exists   ==> 判断是否存在
+            。 os.path.splitext ==> 分离文件名和文件类型
+        - os里的其他方法介绍
+            。 os.getcwd()  ==> 获取当前的工作目录，即当前python脚本工作的目录
+            。 os.chdir()   ==> 改变当前脚本工作目录，相当于shell下的cd命令
+            。 os.rename()  ==> 文件重命名
+            。 os.remove()  ==> 删除文件
+            。 os.rmdir()   ==> 删除空文件夹
+            。 os.removedirs() ==> 删除空文件夹
+            。 os.mkdir()   ==> 创建一个文件夹
+            。 os.listdir('c://') ==> 列出指定目录里的所有文件和文件夹
+            。 os.environ   ==> 获取到环境配置
+            。 os.environ.get('PATH')  ==> 获取指定的环境配置
+
+    + sys 模块：系统相关的功能:
+        - sys.exit()  ==> 退出程序，其功能和内置函数exit（）一致
+        - sys.path    ==> 结果为列表，表示查找模块的路径
+        - sys.stdin   ==> 可以像 input 一样来接收用户的输入，和 input 相关
+        - sys.stdout  ==> 标准输出，修改sys.stdout 可以改变默认输出位置
+        - sys.stderr  ==> 修改sys.stderr可以改变错误信息的输出位置
+
+    + math模块：数学计算相关的模块
+        - math.factorial() ==> 求阶乘
+        - math.floor()     ==> 向下取整
+        - math.ceil()      ==> 向上取整
+        - math.pow()       ==> 幂运算 2**10  /  pow(2,10)  / math.pow(2,10)
+        - round            ==> math中无round函数，round（）为内置函数，用来四舍五入
+        - math.sin(math.pi/6)
+        - math.cos(math.pi/3)
+        - math.tan(math.pi/2)
+
+    + random 模块： 用来生成一个随机数
+        - random.randint(a,b)   ==> 用来生成[a,b]的随机整数： 包含a和b
+        - random.random()       ==> 用来生成[0,1）的随机浮点数,包含 0 但不包含 1
+        - random.randrange(a,b) ==> 用来生成[a,b)的随机整数：包含 a ， 但不包含 b。
+        - random.choice()       ==> 用来在可迭代对象里随机抽取一个数据
+        - random.sample()       ==> 用来在可迭代对象里随机抽取 n 个数据
+
+    + datetime 模块： 用来侠士日期时间：date类用来显示日期；time类用来显示时间；datetime类用来显示日期时间；timedelta类用来计算时间
+        - date 类：
+            * datetime.date(2020,1,1) ==> 用来创建一个日期
+            * datetime.date.today()   ==> 用来获取当前日期
+        - time 类：
+            * datetime.time(18,23,45) ==> 用来创建一个时间
+            * datetime.datetime(2019,2,5,12,34,59) ==> 用于创建一个日期时间
+        - datetime 类：
+            * datetime.datetime.now() ==> 用来获取当前日期时间
+        - timedelta 类：
+            * datetime.timedelta(3)       ==> 时间变量，以day为单位增加
+
+    + time 模块：除了达特time模块里的time类外，Python还单独提供了另一个time模块，用来操作时间，time模块不仅可以用来显示时间，还可以控制程序，让程序暂停（sleep函数）
+        — time.time()    ==> 获取从1970-01-01 00：00：00 UTC 到现在的时间戳
+        - time.sleep(3)  ==> 让线程暂停指定的秒数
+        - time.strftime('%Y-%m-%d %H:%M-%S') ==> 按照指定格式输出时间
+        - time.asctime() ==> 按照 Mon Apr 15 20:30:23 2020 格式显示日期时间; 使用元组类型数据输入
+        - time.ctime()   ==> 按照 Mon Apr 15 20:30:23 2020 格式显示日期时间；输入的是时间戳格式
+
+    + calendar 模块：日历模块
+        - calendar.calendar()   ==> 打印指定年的日历
+        - calendar.isleap()     ==> 判断指定年份是否为闰年
+        - calendar.leapdays(a,b)==> 获取指定年份区间内的闰年个数
+        - calendar.month(2021,5)      ==> 获取指定年份指定月份的日历
+
+    + hashlib 模块 和 hmac 模块： 这两个模块都是用来进行数据加密的
+    # 加密方式：单向加密：md5/ sha / hmac ; 对称加密  ； 非对称加密：rsa
+        . 单向加密：只有加密过程，不能解密
+        .
+
+        - hashlib 模块：主要支持两个算法： md5 和 sha 加密
+        # 需要将要加密的内容转换成为二进制
+
+            * hashlib.md5()
+                example:
+                    x = hashlib.md5(b'abc').hexdigest()  # b'abc'实现将字符串‘abc’转换为二进制；hexdigest()实现将x转化为十六进制
+                    print(x)
+
+            * hashlib.sha1('abc'.encode())       or     hashlib.sha1(b'abc')
+            * hashlib.sha224('abc'.encode())     or     hashlib.sha224(b'abc')
+            * hashlib.sha256('abc'.encode())     or     hashlib.sha256(b'abc')
+            * hashlib.sha384('abc'.encode())     or     hashlib.sha384(b'abc')
+
+        - hmac 模块： 也是一种单向加密
+            hmac.new(b'abc',b'你好').hexdigest()
+
+    + uuid 模块： 用来生成一个全局唯一的id
+        - uuid.uuid1() # 生成随机的uuid
+        - uuid.uuid2() # python中无法使用
+        - uuid.uuid3() # 生成固定的uuid
+        - uuid.uuid4() # 生成随机的uuid，实际应用中使用最多
+        - uuid.uuid5() # 生成固定的uuid
+
+'''
+import os
+
+print(os.name)
+print(os.sep)
+print(os.path.abspath('get.py'))
+print(os.path.isdir('pyexpat'))
+print(os.path.isfile('demo.py'))
+print(os.path.exists('demo.py'))
+
+file_name = '2021.1.28.demo.py'
+print(file_name.rpartition('.'))
+print(os.path.splitext('2021.1.28.demo.py'))
+print(os.getcwd())
+os.chdir('../')  # 到当前路径的上一层
+print(os.getcwd())
+print(os.environ)
+
+print(os.listdir())
+
+# -------------------------------------
+# sys模块
+import sys
+
+print(sys.path)
+
+# -------------------------------------
+# math 数学相关模块
+import math
+
+print(math.factorial(6))
+print(math.floor(2.56))
+print(math.ceil(2.56))
+print(math.floor(-2.56))
+print(math.ceil(-2.45))
+print(math.pow(3, 2))
+# print(math.pow(-2, 0.5))
+print(pow(-2, 0.5))
+print((-2) ** 0.5)
+print(round(-2.45))
+print(round(2.45))
+print(round(-2.54))
+print(round(2.54))
+print(math.sin(math.pi / 6))
+print(math.tan(math.pi / 2))
+
+# ------------------------------------------------------
+# random模块
+import random
+
+print(random.randint(2, 9))
+print(random.random())
+print(random.randrange(2, 9))
+print(random.choice(['zhangsan', 'lisi', 'wangwu', 'jack', 'henry']))
+print(random.sample(['zhangsan', 'lisi', 'wangwu', 'jack', 'henry'], 2))
+
+# --------------------------------------------------------
+# datetime 模块
+import datetime as dt
+
+print(dt.datetime.now())
+print(dt.date(2020, 1, 1))
+print(dt.date.today())
+print(dt.time(18, 23, 45))
+print(dt.datetime(2019, 2, 5, 12, 34, 59))
+print(dt.timedelta(3))
+print(dt.datetime.now() + dt.timedelta(3))
+
+# -----------------------------------------------------
+# time 模块
+import time
+
+print(time.time())
+print(time.strftime('%Y-%m-%d %H:%M-%S'))
+print(time.asctime())
+print(time.asctime((2020, 1, 28, 18, 30, 56, 4, 147, -1)))
+print(time.ctime())
+print(time.ctime(2345678934))
+
+# ------------------------------------------
+# calendar 模块
+import calendar
+
+print(calendar.calendar(2021))
+print(calendar.isleap(2030))
+print(calendar.leapdays(1900, 2021))
+
+for i in range(1900, 2022):
+    if calendar.isleap(i) == True:
+        print(i)
+
+print(calendar.month(2021, 5))
+
+# ---------------------------------------------------------
+# hashlib and hmac 模块
+import hashlib
+import hmac
+
+x = hashlib.md5(b'abc').hexdigest()  # 调用hashlib的 md5 对象
+# x.update(b'abc')
+# print(x.hexdigest())
+# x.digest()
+print(x)
+
+x = hashlib.md5('abc'.encode('utf8')).hexdigest()
+print(x)
+
+print(hashlib.sha384(b'abc').hexdigest())
+print(hashlib.sha384('abc'.encode()).hexdigest())
+
+print(hmac.new(b'abc', 'nihao'.encode()).hexdigest())
+
+# --------------------------------------------------------
+# uuid 模块
+import uuid
