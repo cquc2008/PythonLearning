@@ -1,0 +1,23 @@
+# pip 命令的使用： Python的包管理工具，可用用来查找、下载、安装和卸载Python的第三方资源包
+'''
+pip主要用来管理第三方包，对第三方包的管理主要保含：查找、安装和卸载三个部分的操作
+
++ install 安装
+    - pip install <package_name> # 可以安装指定的第三方资源包
+        * pip install ipython   # 安装ipython包
+
++ uninstall 卸载
+    - pip uninstall <package_name> # 可以卸载指定的第三方资源包
+
++ list 列出当前环境安装了哪些模块
+    - pip list
+
++ freeze 列出当前环境中安装的模块以及模块的版本
+    - pip freeze
+    - pip freeze > file_name    # 将安装的模块名和版本号重定向输出到指定文件 file_name
+      pip install -r file_name  # 读取file_name文件里的模块名和版本号并安装
+      # 上述两个语句结合可以实现在不同的主机运行相同的代码（解决了不同主机中由于安装了不同的模块，导致缺少某一模块而导致在某个主机上无法正常运行的问题）
+
++ pip install <package_name> -i <url>  # 从指定的地址下载包并安装；注意，这是临时修改下载路径，只修改这一个文件的下载路径
+
+'''
