@@ -30,6 +30,33 @@ print(repr(p)) # 调用内置函数repr会触发对象的__repr__方法
   
 # \_\_init\_\_ 方法
 + 在创建对象时，会自动调用这个方法 
+
+```
+class Student(object):
+    def __init__(self, x, y):
+        self.name = x
+        self.age = y
+
+    def say_hello(self):
+        print('大家好，我是：', self.name)
+
+
+# 代码如何运作的
+
+'''
+1. 调用 __new__ 方法，申请一段内存空间 （__new__ 方法用于申请内存空间）.对象就是内存空间内的一个地址
+2. 调用 __init__ 方法,传入参数，将self指向申请好的内存空间，并填充数据（将 “张三” 赋值给 x，self命名其属性名为 “name”， 将 “18” 赋值给 y，self命名其属性名为 “age”）；
+3. 让 变量 s1 也指向创建好的内存空间
+'''
+
+s1 = Student('张三', 18)
+print('0x%X' % id(s1))
+print('s1的名字是：', s1.name)
+s1.say_hello()
+
+s2 = Student('Jack', 21)
+s2.say_hello()
+```
   
 # \_\_del\_\_ 方法
 + 当对象被销毁时，会自动调用这个方法
